@@ -1,4 +1,4 @@
-$('#submit').click(function() {
+$('#generate').click(function() {
     event.preventDefault();
     var form_data = new FormData($('#uploadform')[0]);
     $.ajax({
@@ -25,3 +25,10 @@ $('#submit').click(function() {
     });
 });
 
+// $('#download').click(function() { 
+// 	event.preventDefault()
+// 	$.ajax({
+// 	    url: '/return-files',
+// 	    type: 'POST'
+// 	});
+// });

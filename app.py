@@ -4,10 +4,11 @@ from flask import (
     render_template,
     send_from_directory,
     url_for,
-    jsonify
+    jsonify, 
+    send_file
 )
 from werkzeug import secure_filename
-import os, random
+import os, random, shutil
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -76,15 +77,16 @@ def generate_random_name():
 
 	return random.choice(os.listdir("static/upload"))
 
-def delete_file(filename):
-    os.remove(filename)
 
 @app.route('/uploadajax', methods=['POST', 'GET'])
 def load_image():
     filename = generate_random_name()
     file_path = '/'.join(['upload', filename])
     file_size = os.path.getsize(os.path.join(updir, filename))
-    
+    current_file_path = '/'.join(['static', file_path])
+    target_file_path = '/'.join(['static','temporary', "logo.png"])
+    shutil.copy(current_file_path, target_file_path)
+
     return jsonify(name=filename, path=file_path, size=file_size)
 
 
@@ -102,6 +104,12 @@ def load_image():
 #             file_size = os.path.getsize(os.path.join(updir, filename))
 #             file_path = '/'.join(['upload', filename])
 #             return jsonify(name=filename, path=file_path, size=file_size)
+@app.route('/return-files/')
+def return_files_tut():
+	try:
+		return send_file('static/temporary/logo.png', attachment_filename='logo.png')
+	except Exception as e:
+		return str(e)
 
 if __name__ == '__main__':
     app.run(debug=True)

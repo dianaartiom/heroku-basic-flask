@@ -1,4 +1,4 @@
-/*body {
+body {
 	font-size: 20vmin;
 	line-height: 100vh;
 	text-align: center;
@@ -24,4 +24,4 @@
 	25% { transform: scale(1.1); }
 	50% { transform: rotate(-20deg); }
 	75% { transform: scale(.9); }
-}*/
+}
