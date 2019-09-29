@@ -85,6 +85,7 @@ def load_image():
     file_size = os.path.getsize(os.path.join(updir, filename))
     current_file_path = '/'.join(['static', file_path])
     target_file_path = '/'.join(['static','temporary', "logo.png"])
+    os.remove(target_file_path)
     shutil.copy(current_file_path, target_file_path)
 
     return jsonify(name=filename, path=file_path, size=file_size)
