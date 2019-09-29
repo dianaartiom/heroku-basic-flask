@@ -1,8 +1,5 @@
 absl-py==0.7.1
 alabaster==0.7.12
-anaconda-client==1.7.2
-anaconda-navigator==1.9.6
-anaconda-project==0.8.2
 ansible==2.8.0
 appdirs==1.4.3
 appnope==0.1.0
@@ -34,8 +31,6 @@ Click==7.0
 cloudpickle==0.6.1
 clyent==1.2.2
 colorama==0.4.1
-conda==4.6.2
-conda-build==3.17.6
 constantly==15.1.0
 contextlib2==0.5.5
 cryptography==2.4.2
