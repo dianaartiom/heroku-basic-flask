@@ -1,5 +1,5 @@
 absl-py==0.7.1
-numpy=1.17.2
+numpy==1.17.2
 alabaster==0.7.12
 ansible==2.8.0
 appdirs==1.4.3
