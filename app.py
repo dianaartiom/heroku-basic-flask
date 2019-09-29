@@ -8,8 +8,6 @@ from flask import (
 )
 from werkzeug import secure_filename
 import os, random
-import scipy.misc
-import numpy as np
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -70,12 +68,13 @@ def index():
     return render_template('index.html')
 
 def generate_random_name():
-    int_name = str(random.randint(1, 10000))
-    print(int_name)
-    filename = int_name + ".png"
-    dummy_array = np.ones([50, 50])
-    scipy.misc.toimage(dummy_array).save('static/upload/' + filename)
-    return filename
+    # int_name = str(random.randint(1, 10000))
+    # print(int_name)
+    # filename = int_name + ".png"
+    # dummy_array = np.ones([50, 50])
+    # scipy.misc.toimage(dummy_array).save('static/upload/' + filename)
+
+	return random.choice(os.listdir("static/upload"))
 
 def delete_file(filename):
     os.remove(filename)
